@@ -5,9 +5,18 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\s_balloon_r</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <objects name="objects">
+    <object>objects\o_balloon</object>
+    <object>objects\o_spawner</object>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\r_level1</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
