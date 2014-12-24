@@ -1,2 +1,3 @@
-BalloonFrenzy.gmx
+Balloon Frenzy
 =================
+Fast addictive fun
