@@ -26,7 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize
-alarm[0] = random(30);
+hit = 0;
+count = 0;
+miss = 0;
+ratio = 0;
+alarm[0] = round(random(30));
 </string>
           </argument>
         </arguments>
@@ -49,9 +53,70 @@ alarm[0] = random(30);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Spawn Balloon
-instance_create(random(room_width - 32) + 32, room_height - 32, o_balloon);
-alarm[0] = random(30);
+            <string>/// Spawn
+instance_create(random(room_width - 48) + 48, room_height - 48, o_balloon);
+alarm[0] = round(random(60)) + 30;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Calculate Ratio
+if (count &gt; 0)
+    ratio = (hit - miss) / count;
+else
+    ratio = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// HUD
+var cx = room_width / 2;
+var c = c_black;
+if (ratio &gt; 0.5)
+    c = c_green;
+else
+    c = c_maroon;
+
+draw_text_colour(cx, 16, string(ratio * 100) + "%", c, c, c, c, 0.75);
+
+draw_text(16, 16, alarm[0]);
+draw_text(16, 32, instance_count - 1);
 </string>
           </argument>
         </arguments>
