@@ -6,7 +6,7 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\s_balloon_r</sprite>
+    <sprite>sprites\s_balloon</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
